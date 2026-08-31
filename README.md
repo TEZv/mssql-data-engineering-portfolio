@@ -1,5 +1,8 @@
 # MS SQL Server Data Engineering Portfolio
 
+[![SQL Server portfolio CI](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/sqlserver-ci.yml/badge.svg)](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/sqlserver-ci.yml)
+[![Terraform CI](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/terraform-ci.yml)
+
 Three reproducible, synthetic-data projects demonstrating database development, maintenance, testing, and operational ownership in Microsoft SQL Server.
 
 > Portfolio status: implemented as independent lab projects in 2026. These are not presented as client engagements or commercial years of experience.
@@ -90,4 +93,4 @@ infra/azure-sql/                 # private-network Azure SQL target via Terrafor
 
 ## Current verification status
 
-Repository structure and static contracts are checked locally by `scripts/static-check.ps1`. Portable Terraform initialization and validation pass without administrator rights. Runtime SQL assertions are defined for Docker/CI and should be considered verified only after the workflow is green on GitHub or `run-all` succeeds locally. No real Azure deployment is claimed yet.
+Repository structure and static contracts are checked locally by `scripts/static-check.ps1`. Portable Terraform initialization and validation pass without administrator rights. The public GitHub Actions workflow runs all three projects and their assertions against SQL Server 2022; its badge and run history are the reproducible runtime evidence. No real Azure deployment is claimed yet.
