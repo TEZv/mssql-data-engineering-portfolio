@@ -24,6 +24,7 @@
 - “Three client projects” or invented client names.
 - Production volume, latency or cost savings that were not measured.
 - Azure, Always On, SSIS, SSAS or SSRS hands-on experience until a working artifact exists.
+- Calling Terraform “deployed to Azure” while only initialization and validation have run.
 - Calling a CI workflow “green” before it has actually run successfully.
 - Describing the synthetic Retail ERP build as enterprise-scale or high-volume before a measured scale test exists.
 

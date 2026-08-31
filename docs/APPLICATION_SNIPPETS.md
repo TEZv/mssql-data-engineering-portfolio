@@ -10,6 +10,7 @@
 - Implemented T-SQL stored procedures, an inline table-valued function, reporting views, SCD2 history, idempotent loads, audit/reject paths, constraints and automated assertions.
 - Created maintenance tooling for integrity checks, index/statistics care, Query Store diagnostics, retention and backup verification, with dry-run defaults and runbooks.
 - Packaged synthetic fixtures with Docker and GitHub Actions for reproducible SQL Server 2022 integration testing.
+- Defined and validated a private Azure SQL deployment target with Terraform, private networking, diagnostics and CI; real cloud deployment is tracked separately from code validation.
 
 ## Recruiter message (Polish)
 

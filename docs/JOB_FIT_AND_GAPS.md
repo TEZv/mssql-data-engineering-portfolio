@@ -23,9 +23,9 @@ Strengths: real data-analyst employment, Power BI, Excel, Python, reporting auto
 
 ## 3. Data Engineer — ERP Technologies (mid band) — stretch target
 
-Strong overlap: Python, SQL, business collaboration, analytical pipelines, retail/finance-flavored portfolio, data quality and CI. Material gaps: hands-on GCP, Snowflake, Terraform/OpenTofu, cloud deployment, SAP structures and demonstrable multi-year data-engineering delivery.
+Strong overlap: Python, SQL, business collaboration, analytical pipelines, retail/finance-flavored portfolio, data quality and CI. Terraform/Azure SQL infrastructure is now implemented and locally validated without admin rights. Material gaps remain: a captured real cloud deployment, GCP/Snowflake, SAP structures and demonstrable multi-year data-engineering delivery.
 
-**Assessment:** Apply selectively as a transition candidate, but do not imply the portfolio closes the cloud/IaC or three-year commercial gap. The next portfolio increment should deploy one project to Azure SQL or GCP/Snowflake and provision it through Terraform.
+**Assessment:** Apply selectively as a transition candidate. Describe Terraform as implemented and validated, not yet deployed. The next evidence increment is one controlled Azure `plan/apply/smoke-test/destroy` run with redacted artifacts; this still does not manufacture a three-year commercial track record.
 
 ## 4. Palantir / Databricks / AML and senior ERP roles — not current targets
 

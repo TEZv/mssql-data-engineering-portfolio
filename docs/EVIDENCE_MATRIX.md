@@ -13,7 +13,7 @@ This matrix separates demonstrable project evidence from employment history. Dat
 | Query analysis and optimization | Purpose-built indexes, Query Store diagnostics, index usage and fragmentation reports | Implemented |
 | Testing/debugging | Executable T-SQL assertions use `THROW`; CI stops on error | Implemented |
 | Documentation | README, data dictionaries, ADRs/runbooks, interview stories | Implemented |
-| Azure familiarity | Architecture is portable to Azure SQL Managed Instance; no hands-on Azure deployment is claimed here | Gap / next increment |
+| Azure / IaC familiarity | Private Azure SQL Database target, networking, diagnostics, variables and CI are defined in Terraform; portable Terraform initialization and validation passed | Implemented + validated; real deployment not yet claimed |
 | Python | Existing professional analytics experience; optional ingestion extension planned, not used to inflate this SQL portfolio | Existing skill, outside these fixtures |
 
 ## Completion definition used here

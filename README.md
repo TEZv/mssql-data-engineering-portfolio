@@ -19,8 +19,9 @@ Together these provide evidence for:
 - one larger greenfield SQL Server build;
 - T-SQL procedures, functions, views, transactions, error handling, indexing and query diagnostics;
 - Python-ready ingestion contracts, CI, documentation and data-quality gates.
+- A coherent Azure SQL deployment target defined with Terraform and validated without local administrator rights.
 
-See [evidence matrix](docs/EVIDENCE_MATRIX.md) for a requirement-by-requirement map, [job-fit analysis](docs/JOB_FIT_AND_GAPS.md) for the supplied vacancies, and [honest positioning](docs/HONEST_POSITIONING.md) for CV/interview wording.
+See [evidence matrix](docs/EVIDENCE_MATRIX.md) for a requirement-by-requirement map, [job-fit analysis](docs/JOB_FIT_AND_GAPS.md) for the supplied vacancies, [reference privacy](docs/REFERENCE_PRIVACY.md), and [honest positioning](docs/HONEST_POSITIONING.md) for CV/interview wording.
 
 The [GitHub portfolio strategy](docs/GITHUB_PORTFOLIO_STRATEGY.md) explains why this repository stays separate from the existing `de-lab` learning roadmap.
 
@@ -60,7 +61,7 @@ docker compose up -d
 ./scripts/run-all.ps1
 ```
 
-The scripts create three isolated databases and run their automated assertions. No external or proprietary data is used.
+The scripts create three isolated databases and run their automated assertions. No external or proprietary data is used. The Azure layer is an optional deployment target, not a fourth unrelated case; see [cloud/IaC practice](docs/CLOUD_IAC_PRACTICE.md).
 
 ## Repository structure
 
@@ -74,6 +75,7 @@ docs/
   HONEST_POSITIONING.md
   INTERVIEW_STORIES.md
 scripts/
+infra/azure-sql/                 # private-network Azure SQL target via Terraform
 .github/workflows/
 ```
 
@@ -88,4 +90,4 @@ scripts/
 
 ## Current verification status
 
-Repository structure and static contracts are checked locally by `scripts/static-check.ps1`. Runtime SQL assertions are defined for Docker/CI and should be considered verified only after the workflow is green on GitHub or `run-all` succeeds locally.
+Repository structure and static contracts are checked locally by `scripts/static-check.ps1`. Portable Terraform initialization and validation pass without administrator rights. Runtime SQL assertions are defined for Docker/CI and should be considered verified only after the workflow is green on GitHub or `run-all` succeeds locally. No real Azure deployment is claimed yet.

@@ -1,0 +1,14 @@
+subscription_id = "00000000-0000-0000-0000-000000000000"
+location        = "polandcentral"
+project_name    = "mssqlportfolio"
+environment     = "dev"
+
+tags = {
+  owner       = "portfolio-candidate"
+  expires_on  = "YYYY-MM-DD"
+  cost_center = "personal-learning"
+}
+
+# Never put sql_admin_password in this file.
+# Use an environment variable:
+# TF_VAR_sql_admin_password="a-long-unique-secret"

@@ -5,6 +5,9 @@ $required = @(
     'docker-compose.yml',
     'docs/EVIDENCE_MATRIX.md',
     'docs/GITHUB_PORTFOLIO_STRATEGY.md',
+    'docs/CLOUD_IAC_PRACTICE.md',
+    'docs/REFERENCE_PRIVACY.md',
+    'infra/azure-sql/main.tf',
     'projects/01-retail-erp-warehouse/sql/05_tests.sql',
     'projects/02-media-performance-mart/sql/05_tests.sql',
     'projects/03-sql-server-reliability/sql/05_tests.sql'

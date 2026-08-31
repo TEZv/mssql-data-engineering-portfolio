@@ -22,7 +22,7 @@ Avoid featuring six unrelated identities at once. For SQL/data applications, a r
 - Change the typing/header emphasis from broad “Strategist / Producer / Creator” to the current target: data analytics transitioning into SQL/data engineering.
 - Add the new repository as the first Featured card.
 - Keep `de-lab` labelled explicitly as learning/interview preparation.
-- Remove skill icons that imply production hands-on depth not supported by a project (especially cloud/IaC) or add a working artifact first.
+- Qualify cloud/IaC precisely: Terraform is now implemented and validated; add a deployment badge/evidence only after a real controlled cloud run.
 - Use one contact email consistently across CV, profile and application documents.
 
 ## Publish gate
