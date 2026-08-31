@@ -1,6 +1,10 @@
 USE SQLReliabilityPortfolio;
 GO
 
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
+GO
+
 CREATE OR ALTER PROCEDURE maintenance.usp_IntegrityCheck
     @execute bit = 0
 AS

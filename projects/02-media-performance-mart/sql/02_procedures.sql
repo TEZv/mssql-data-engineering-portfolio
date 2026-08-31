@@ -1,6 +1,10 @@
 USE MediaPerformancePortfolio;
 GO
 
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
+GO
+
 CREATE OR ALTER PROCEDURE etl.usp_UpsertDailyMetric
     @pipeline_run_id uniqueidentifier
 AS

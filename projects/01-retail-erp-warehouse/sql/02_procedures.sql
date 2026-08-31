@@ -1,6 +1,10 @@
 USE RetailERPPortfolio;
 GO
 
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
+GO
+
 CREATE OR ALTER PROCEDURE etl.usp_LoadCustomerDimension
     @batch_id uniqueidentifier
 AS

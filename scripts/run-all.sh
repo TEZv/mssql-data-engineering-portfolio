@@ -3,7 +3,7 @@ set -euo pipefail
 
 container="${SQL_CONTAINER:-mssql-portfolio}"
 password="${MSSQL_SA_PASSWORD:-Portfolio_SQL_2026_Strong!}"
-sqlcmd=(docker exec -i "$container" /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$password" -C -b -r1)
+sqlcmd=(docker exec -i "$container" /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$password" -C -b -r1 -I)
 
 run_file() {
   local file="$1"

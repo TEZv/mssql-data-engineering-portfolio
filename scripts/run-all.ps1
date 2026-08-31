@@ -22,7 +22,7 @@ foreach ($project in $projects) {
     Get-ChildItem "$project/sql/*.sql" | Sort-Object Name | ForEach-Object {
         Write-Host "Running $($_.FullName)"
         Get-Content -Raw -LiteralPath $_.FullName |
-            docker exec -i $container /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $password -C -b -r1
+            docker exec -i $container /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $password -C -b -r1 -I
         if ($LASTEXITCODE -ne 0) { throw "Failed: $($_.FullName)" }
     }
 }
