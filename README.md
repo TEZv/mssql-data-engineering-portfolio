@@ -1,4 +1,4 @@
-# MS SQL Server Data Engineering Portfolio
+# 🗄️ MS SQL Server Data Engineering Portfolio
 
 [![SQL Server portfolio CI](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/sqlserver-ci.yml/badge.svg)](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/sqlserver-ci.yml)
 [![Terraform CI](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/workflows/terraform-ci.yml)
@@ -7,7 +7,7 @@ Three reproducible, synthetic-data projects demonstrating database development, 
 
 > Portfolio status: implemented as independent lab projects in 2026. These are not presented as client engagements or commercial years of experience.
 
-## What a reviewer can verify
+## 🔎 What a reviewer can verify
 
 | Project | Business scenario | MS SQL development | Maintenance / upkeep | Scale signal |
 |---|---|---|---|---|
@@ -28,7 +28,7 @@ See [evidence matrix](docs/EVIDENCE_MATRIX.md) for a requirement-by-requirement 
 
 The [GitHub portfolio strategy](docs/GITHUB_PORTFOLIO_STRATEGY.md) explains why this repository stays separate from the existing `de-lab` learning roadmap.
 
-## Architecture
+## 🧩 Architecture
 
 ```text
 synthetic source data
@@ -45,7 +45,7 @@ synthetic source data
                                   data-quality and operational checks
 ```
 
-## Run the complete portfolio
+## ▶️ Run the complete portfolio
 
 Prerequisites: Docker Desktop with Linux containers and Docker Compose.
 
@@ -66,7 +66,7 @@ docker compose up -d
 
 The scripts create three isolated databases and run their automated assertions. No external or proprietary data is used. The Azure layer is an optional deployment target, not a fourth unrelated case; see [cloud/IaC practice](docs/CLOUD_IAC_PRACTICE.md).
 
-## Repository structure
+## 🗂️ Repository structure
 
 ```text
 projects/
@@ -82,7 +82,7 @@ infra/azure-sql/                 # private-network Azure SQL target via Terrafor
 .github/workflows/
 ```
 
-## Design principles
+## 🛡️ Design principles
 
 - Idempotent setup and deterministic synthetic fixtures.
 - `TRY/CATCH`, explicit transactions, `XACT_ABORT`, and audit logging around writes.
@@ -91,6 +91,6 @@ infra/azure-sql/                 # private-network Azure SQL target via Terrafor
 - Operational procedures use dry-run defaults where a change could be risky.
 - Every claim in the recruiter-facing documentation links to inspectable code.
 
-## Current verification status
+## ✅ Current verification status
 
 Repository structure and static contracts are checked locally by `scripts/static-check.ps1`. Portable Terraform initialization and validation pass without administrator rights. The public GitHub Actions workflow runs all three projects and their assertions against SQL Server 2022; its badge and run history are the reproducible runtime evidence. No real Azure deployment is claimed yet.
