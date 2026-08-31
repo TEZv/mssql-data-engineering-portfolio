@@ -1,0 +1,22 @@
+name: SQL Server portfolio CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start SQL Server
+        run: cp .env.example .env && docker compose up -d
+      - name: Wait for database
+        run: bash scripts/wait-for-sql.sh
+      - name: Build all projects and run assertions
+        run: bash scripts/run-all.sh
+      - name: Show container logs on failure
+        if: failure()
+        run: docker logs mssql-portfolio

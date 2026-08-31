@@ -1,0 +1,25 @@
+USE master;
+GO
+
+IF DB_ID(N'SQLReliabilityPortfolio') IS NULL
+    CREATE DATABASE SQLReliabilityPortfolio;
+GO
+
+ALTER DATABASE SQLReliabilityPortfolio SET RECOVERY SIMPLE;
+ALTER DATABASE SQLReliabilityPortfolio SET QUERY_STORE = ON;
+ALTER DATABASE SQLReliabilityPortfolio SET QUERY_STORE (
+    OPERATION_MODE = READ_WRITE,
+    CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30),
+    DATA_FLUSH_INTERVAL_SECONDS = 900,
+    INTERVAL_LENGTH_MINUTES = 15,
+    MAX_STORAGE_SIZE_MB = 128,
+    QUERY_CAPTURE_MODE = AUTO
+);
+GO
+
+USE SQLReliabilityPortfolio;
+GO
+
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'maintenance') EXEC(N'CREATE SCHEMA maintenance');
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'diagnostics') EXEC(N'CREATE SCHEMA diagnostics');
+GO

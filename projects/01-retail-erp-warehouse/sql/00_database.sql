@@ -1,0 +1,21 @@
+USE master;
+GO
+
+IF DB_ID(N'RetailERPPortfolio') IS NULL
+    CREATE DATABASE RetailERPPortfolio;
+GO
+
+ALTER DATABASE RetailERPPortfolio SET RECOVERY SIMPLE;
+ALTER DATABASE RetailERPPortfolio SET READ_COMMITTED_SNAPSHOT ON WITH ROLLBACK IMMEDIATE;
+GO
+
+USE RetailERPPortfolio;
+GO
+
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'stg') EXEC(N'CREATE SCHEMA stg');
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'dim') EXEC(N'CREATE SCHEMA dim');
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'fact') EXEC(N'CREATE SCHEMA fact');
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'etl') EXEC(N'CREATE SCHEMA etl');
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'mart') EXEC(N'CREATE SCHEMA mart');
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'audit') EXEC(N'CREATE SCHEMA audit');
+GO

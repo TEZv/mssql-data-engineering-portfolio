@@ -1,0 +1,9 @@
+.env
+.idea/
+.vscode/
+*.user
+*.suo
+artifacts/
+*.bak
+*.trn
+*.log
