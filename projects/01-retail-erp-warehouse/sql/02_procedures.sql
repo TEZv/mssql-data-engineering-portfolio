@@ -59,6 +59,43 @@ BEGIN
 END;
 GO
 
+CREATE OR ALTER PROCEDURE etl.usp_LoadProductDimension
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET XACT_ABORT ON;
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        UPDATE target
+           SET product_name = source.product_name,
+               category = source.category,
+               standard_cost = source.standard_cost
+        FROM dim.Product target
+        JOIN stg.Product source ON source.product_code = target.product_code
+        WHERE target.product_name <> source.product_name
+           OR target.category <> source.category
+           OR target.standard_cost <> source.standard_cost;
+
+        INSERT dim.Product(product_code, product_name, category, standard_cost)
+        SELECT source.product_code, source.product_name, source.category, source.standard_cost
+        FROM stg.Product source
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM dim.Product target
+            WHERE target.product_code = source.product_code
+        );
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        IF XACT_STATE() <> 0 ROLLBACK;
+        THROW;
+    END CATCH;
+END;
+GO
+
 CREATE OR ALTER PROCEDURE etl.usp_LoadSalesOrder
     @batch_id uniqueidentifier
 AS

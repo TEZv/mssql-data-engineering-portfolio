@@ -24,6 +24,7 @@ INSERT stg.SalesOrderLine(batch_id, order_number, line_number, product_code, qua
 (@batch, 'SO-1002', 2, 'P100', 0, 30.0000, 0.0000);
 
 EXEC etl.usp_LoadCustomerDimension @batch;
+EXEC etl.usp_LoadProductDimension;
 EXEC etl.usp_LoadSalesOrder @batch;
 
 -- A later customer change proves that historical facts keep the original dimension version.
