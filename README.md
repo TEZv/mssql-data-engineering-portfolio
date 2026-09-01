@@ -28,6 +28,8 @@ See [evidence matrix](docs/EVIDENCE_MATRIX.md) for a requirement-by-requirement 
 
 The [GitHub portfolio strategy](docs/GITHUB_PORTFOLIO_STRATEGY.md) explains why this repository stays separate from the existing `de-lab` learning roadmap.
 
+For the complementary PySpark/Delta Lake evidence, see [Lakehouse Data Engineering Portfolio](https://github.com/TEZv/lakehouse-finance-data-engineering). It is deliberately separate because lakehouse runtime, CI and deployment concerns are different from SQL Server; both repositories are linked from the main [Data & Analytics Portfolio](https://github.com/TEZv/Data-Specialist-Portfolio).
+
 ## 🧩 Architecture
 
 ```text

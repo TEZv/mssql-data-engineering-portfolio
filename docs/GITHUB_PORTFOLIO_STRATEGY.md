@@ -6,14 +6,15 @@
 
 `mssql-data-engineering-portfolio` is a recruiter-facing evidence repository: bounded projects, runnable code, tests and runbooks. It should remain separate from the lab so reviewers do not need to distinguish exercises from completed artifacts.
 
-The current `Data-Specialist-Portfolio` repository (last reviewed from its public main branch) is mostly a list of claimed projects plus two CV PDFs, without corresponding inspectable project artifacts. It weakens evidence compared with this repository. Recommended action after the new repo is published and verified: archive it or remove it from the profile’s Featured section; do not delete it until any useful documents are preserved.
+`Data-Specialist-Portfolio` is the recruiter-facing landing page. It links anonymized professional analytics cases to inspectable delivery repositories, while preserving a clear confidentiality boundary. Keep it featured alongside the technical proof repositories.
 
 ## Recommended Featured order
 
-1. `mssql-data-engineering-portfolio`
-2. one strongest real analytics automation case with sanitized evidence
-3. `de-lab` (learning discipline)
-4. one deployed product/application project
+1. `Data-Specialist-Portfolio`
+2. `mssql-data-engineering-portfolio`
+3. `lakehouse-finance-data-engineering`
+4. `de-lab` (learning discipline)
+5. one deployed product/application project
 
 Avoid featuring six unrelated identities at once. For SQL/data applications, a recruiter should understand the target direction within ten seconds.
 
