@@ -30,6 +30,10 @@ The [GitHub portfolio strategy](docs/GITHUB_PORTFOLIO_STRATEGY.md) explains why 
 
 For the complementary PySpark/Delta Lake evidence, see [Lakehouse Data Engineering Portfolio](https://github.com/TEZv/lakehouse-finance-data-engineering). It is deliberately separate because lakehouse runtime, CI and deployment concerns are different from SQL Server; both repositories are linked from the main [Data & Analytics Portfolio](https://github.com/TEZv/Data-Specialist-Portfolio).
 
+### 🧩 Verified platform companions
+
+[Kafka, Airflow, dbt, Hive/HDFS and Kubernetes labs](https://github.com/TEZv/lakehouse-finance-data-engineering/tree/main/labs) extend the portfolio with transport, orchestration, SQL analytics, distributed-storage basics and container Job execution. [Four-platform CI evidence](https://github.com/TEZv/lakehouse-finance-data-engineering/actions/runs/34409326771) verifies the new modules. These are independent companions, not a claim that all these services are integrated into the SQL Server projects. See the shared [coverage register](https://github.com/TEZv/Data-Specialist-Portfolio/blob/main/docs/PLATFORM_COVERAGE.md).
+
 ## 🧩 Architecture
 
 ```text
