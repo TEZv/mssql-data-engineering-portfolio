@@ -24,9 +24,9 @@ Together these provide evidence for:
 - Python-ready ingestion contracts, CI, documentation and data-quality gates.
 - A coherent Azure SQL deployment target defined with Terraform and validated without local administrator rights.
 
-See [evidence matrix](docs/EVIDENCE_MATRIX.md) for a requirement-by-requirement map, [job-fit analysis](docs/JOB_FIT_AND_GAPS.md) for the supplied vacancies, [reference privacy](docs/REFERENCE_PRIVACY.md), and [honest positioning](docs/HONEST_POSITIONING.md) for CV/interview wording.
+See the [evidence matrix](docs/EVIDENCE_MATRIX.md) for project coverage and the [cloud runbook](docs/CLOUD_IAC_PRACTICE.md) for the deployment boundary. Personal application materials and employment references are shared privately.
 
-The [GitHub portfolio strategy](docs/GITHUB_PORTFOLIO_STRATEGY.md) explains why this repository stays separate from the existing `de-lab` learning roadmap.
+This repository contains technical project evidence; `de-lab` is a separate learning roadmap.
 
 For the complementary PySpark/Delta Lake evidence, see [Lakehouse Data Engineering Portfolio](https://github.com/TEZv/lakehouse-finance-data-engineering). It is deliberately separate because lakehouse runtime, CI and deployment concerns are different from SQL Server; both repositories are linked from the main [Data & Analytics Portfolio](https://github.com/TEZv/Data-Specialist-Portfolio).
 
@@ -81,8 +81,8 @@ projects/
   03-sql-server-reliability/    # maintenance and incident response
 docs/
   EVIDENCE_MATRIX.md
-  HONEST_POSITIONING.md
-  INTERVIEW_STORIES.md
+  CLOUD_IAC_PRACTICE.md
+  EVIDENCE_MATRIX.md
 scripts/
 infra/azure-sql/                 # private-network Azure SQL target via Terraform
 .github/workflows/
