@@ -9,9 +9,9 @@ Three reproducible, synthetic-data projects demonstrating database development, 
 
 ## 🔎 What a reviewer can verify
 
-| Project | Business scenario | MS SQL development | Maintenance / upkeep | Scale signal |
+| Project | Business scenario | MS SQL development | Maintenance / upkeep | Scope signal |
 |---|---|---|---|---|
-| [Retail ERP Order-to-Cash](projects/01-retail-erp-warehouse/README.md) | Orders, customers, products, inventory | Greenfield relational model, SCD2, incremental load, stored procedures, views | Idempotent loads, indexes, reconciliation, runbook | Larger new database build |
+| [Retail ERP Order-to-Cash](projects/01-retail-erp-warehouse/README.md) | Orders, customers, products, inventory | Greenfield relational model, SCD2, incremental load, stored procedures, views | Idempotent loads, indexes, reconciliation, runbook | Greenfield database build |
 | [Media Performance Mart](projects/02-media-performance-mart/README.md) | Content reach, revenue, weighted retention | T-SQL ingestion, windowed reporting, inline TVF, KPI views | Late-arriving data handling, audit log, data-quality checks | Production-style analytical mart |
 | [SQL Server Reliability Lab](projects/03-sql-server-reliability/README.md) | Operations for an existing transactional database | Diagnostic and maintenance procedures | Integrity, index/statistics care, retention, backup verification, incident runbooks | Repeatable upkeep framework |
 
@@ -19,7 +19,7 @@ Together these provide evidence for:
 
 - three completed MS SQL Server development projects;
 - two projects with explicit maintenance and upkeep scope;
-- one larger greenfield SQL Server build;
+- one greenfield SQL Server build;
 - T-SQL procedures, functions, views, transactions, error handling, indexing and query diagnostics;
 - Python-ready ingestion contracts, CI, documentation and data-quality gates.
 - A coherent Azure SQL deployment target defined with Terraform and validated without local administrator rights.
@@ -76,11 +76,10 @@ The scripts create three isolated databases and run their automated assertions. 
 
 ```text
 projects/
-  01-retail-erp-warehouse/      # larger greenfield build
+  01-retail-erp-warehouse/      # greenfield database build
   02-media-performance-mart/    # analytical development + upkeep
   03-sql-server-reliability/    # maintenance and incident response
 docs/
-  EVIDENCE_MATRIX.md
   CLOUD_IAC_PRACTICE.md
   EVIDENCE_MATRIX.md
 scripts/
