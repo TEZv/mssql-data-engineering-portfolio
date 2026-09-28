@@ -17,9 +17,12 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        directory: [infra/azure-sql, infra/azure-erp-dwh]
     defaults:
       run:
-        working-directory: infra/azure-sql
+        working-directory: ${{ matrix.directory }}
     steps:
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3

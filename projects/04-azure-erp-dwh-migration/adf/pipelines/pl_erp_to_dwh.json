@@ -1,0 +1,31 @@
+{
+  "name": "pl_erp_to_dwh",
+  "properties": {
+    "parameters": {
+      "batch_id": { "type": "String" },
+      "source_file": { "type": "String" }
+    },
+    "activities": [
+      {
+        "name": "Copy ERP extract to staging",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": { "timeout": "01:00:00", "retry": 2, "retryIntervalInSeconds": 30 },
+        "typeProperties": {
+          "source": { "type": "DelimitedTextSource" },
+          "sink": { "type": "AzureSqlSink", "writeBehavior": "insert" }
+        },
+        "inputs": [{ "referenceName": "ds_erp_landing_csv", "type": "DatasetReference", "parameters": { "file_name": "@pipeline().parameters.source_file" } }],
+        "outputs": [{ "referenceName": "ds_stg_sales_order", "type": "DatasetReference" }]
+      },
+      {
+        "name": "Merge and reconcile batch",
+        "type": "SqlServerStoredProcedure",
+        "dependsOn": [{ "activity": "Copy ERP extract to staging", "dependencyConditions": ["Succeeded"] }],
+        "policy": { "timeout": "00:30:00", "retry": 1, "retryIntervalInSeconds": 30 },
+        "linkedServiceName": { "referenceName": "ls_azure_sql_mi", "type": "LinkedServiceReference" },
+        "typeProperties": { "storedProcedureName": "etl.usp_LoadSalesOrderBatch", "storedProcedureParameters": { "BatchId": { "value": "@pipeline().parameters.batch_id", "type": "String" } } }
+      }
+    ]
+  }
+}

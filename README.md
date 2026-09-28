@@ -14,6 +14,7 @@ Three reproducible, synthetic-data projects demonstrating database development, 
 | [Retail ERP Order-to-Cash](projects/01-retail-erp-warehouse/README.md) | Orders, customers, products, inventory | Greenfield relational model, SCD2, incremental load, stored procedures, views | Idempotent loads, indexes, reconciliation, runbook | Greenfield database build |
 | [Media Performance Mart](projects/02-media-performance-mart/README.md) | Content reach, revenue, weighted retention | T-SQL ingestion, windowed reporting, inline TVF, KPI views | Late-arriving data handling, audit log, data-quality checks | Production-style analytical mart |
 | [SQL Server Reliability Lab](projects/03-sql-server-reliability/README.md) | Operations for an existing transactional database | Diagnostic and maintenance procedures | Integrity, index/statistics care, retention, backup verification, incident runbooks | Repeatable upkeep framework |
+| [Azure ERP → DWH migration](projects/04-azure-erp-dwh-migration/README.md) | Synthetic ERP extraction to cloud warehouse | ADF pipeline definition, staging and reconciliation procedure | Audit record, retry policy and controlled deployment runbook | Deploy-ready Azure design; no apply claimed |
 
 Together these provide evidence for:
 
@@ -79,11 +80,13 @@ projects/
   01-retail-erp-warehouse/      # greenfield database build
   02-media-performance-mart/    # analytical development + upkeep
   03-sql-server-reliability/    # maintenance and incident response
+  04-azure-erp-dwh-migration/   # deploy-ready Azure migration case
 docs/
   CLOUD_IAC_PRACTICE.md
   EVIDENCE_MATRIX.md
 scripts/
 infra/azure-sql/                 # private-network Azure SQL target via Terraform
+infra/azure-erp-dwh/             # Storage, ADF, Key Vault and Azure SQL boundary
 .github/workflows/
 ```
 
