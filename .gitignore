@@ -17,3 +17,7 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+__pycache__/
+*.py[cod]
+*.tfvars
+*.tfvars.json
