@@ -1,0 +1,3 @@
+SourceOrderId,OrderDate,CustomerCode,ProductCode,Quantity,NetAmount,SourceVersion
+O1,2026-10-01,C1,P1,10,100.00,1
+O2,2026-10-01,C2,P1,8,80.00,1

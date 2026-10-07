@@ -1,0 +1,1 @@
+{"name":"ds_stg_sales_order","properties":{"type":"AzureSqlTable","linkedServiceName":{"referenceName":"ls_azure_sql_mi","type":"LinkedServiceReference"},"typeProperties":{"schema":"stg","table":"SalesOrder"},"schema":[]}}

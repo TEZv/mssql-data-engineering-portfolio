@@ -15,4 +15,9 @@ for project in projects/01-retail-erp-warehouse projects/02-media-performance-ma
   while IFS= read -r file; do run_file "$file"; done < <(find "$project/sql" -maxdepth 1 -name '*.sql' | sort)
 done
 
+"${sqlcmd[@]}" -Q "IF DB_ID('AzureErpDwhLab') IS NOT NULL BEGIN ALTER DATABASE AzureErpDwhLab SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE AzureErpDwhLab; END; CREATE DATABASE AzureErpDwhLab;"
+for file in projects/04-azure-erp-dwh-migration/sql/001_warehouse_load.sql projects/04-azure-erp-dwh-migration/sql/002_assertions.sql; do
+  "${sqlcmd[@]}" -d AzureErpDwhLab < "$file"
+done
+
 echo "All SQL projects and assertions completed."

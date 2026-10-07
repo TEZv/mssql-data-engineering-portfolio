@@ -3,7 +3,9 @@
   "properties": {
     "parameters": {
       "batch_id": { "type": "String" },
-      "source_file": { "type": "String" }
+      "source_file": { "type": "String" },
+      "expected_rows": { "type": "String" },
+      "expected_amount": { "type": "String" }
     },
     "activities": [
       {
@@ -12,8 +14,26 @@
         "dependsOn": [],
         "policy": { "timeout": "01:00:00", "retry": 2, "retryIntervalInSeconds": 30 },
         "typeProperties": {
-          "source": { "type": "DelimitedTextSource" },
-          "sink": { "type": "AzureSqlSink", "writeBehavior": "insert" }
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": { "type": "AzureBlobStorageReadSettings", "recursive": false },
+            "formatSettings": { "type": "DelimitedTextReadSettings" },
+            "additionalColumns": [{ "name": "BatchId", "value": { "value": "@pipeline().parameters.batch_id", "type": "Expression" } }]
+          },
+          "sink": { "type": "AzureSqlSink", "writeBehavior": "upsert", "upsertSettings": { "useTempDB": true, "keys": ["BatchId", "SourceOrderId"] } },
+          "translator": {
+            "type": "TabularTranslator", "typeConversion": true,
+            "mappings": [
+              {"source":{"name":"BatchId"},"sink":{"name":"BatchId"}},
+              {"source":{"name":"SourceOrderId"},"sink":{"name":"SourceOrderId"}},
+              {"source":{"name":"OrderDate"},"sink":{"name":"OrderDate"}},
+              {"source":{"name":"CustomerCode"},"sink":{"name":"CustomerCode"}},
+              {"source":{"name":"ProductCode"},"sink":{"name":"ProductCode"}},
+              {"source":{"name":"Quantity"},"sink":{"name":"Quantity"}},
+              {"source":{"name":"NetAmount"},"sink":{"name":"NetAmount"}},
+              {"source":{"name":"SourceVersion"},"sink":{"name":"SourceVersion"}}
+            ]
+          }
         },
         "inputs": [{ "referenceName": "ds_erp_landing_csv", "type": "DatasetReference", "parameters": { "file_name": "@pipeline().parameters.source_file" } }],
         "outputs": [{ "referenceName": "ds_stg_sales_order", "type": "DatasetReference" }]
@@ -24,7 +44,14 @@
         "dependsOn": [{ "activity": "Copy ERP extract to staging", "dependencyConditions": ["Succeeded"] }],
         "policy": { "timeout": "00:30:00", "retry": 1, "retryIntervalInSeconds": 30 },
         "linkedServiceName": { "referenceName": "ls_azure_sql_mi", "type": "LinkedServiceReference" },
-        "typeProperties": { "storedProcedureName": "etl.usp_LoadSalesOrderBatch", "storedProcedureParameters": { "BatchId": { "value": "@pipeline().parameters.batch_id", "type": "String" } } }
+        "typeProperties": {
+          "storedProcedureName": "etl.usp_LoadSalesOrderBatch",
+          "storedProcedureParameters": {
+            "BatchId": { "value": { "value": "@pipeline().parameters.batch_id", "type": "Expression" }, "type": "Guid" },
+            "ExpectedRows": { "value": { "value": "@int(pipeline().parameters.expected_rows)", "type": "Expression" }, "type": "Int32" },
+            "ExpectedAmount": { "value": { "value": "@pipeline().parameters.expected_amount", "type": "Expression" }, "type": "Decimal" }
+          }
+        }
       }
     ]
   }

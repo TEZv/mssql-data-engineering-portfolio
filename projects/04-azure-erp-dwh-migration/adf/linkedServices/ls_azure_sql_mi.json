@@ -1,0 +1,1 @@
+{"name":"ls_azure_sql_mi","properties":{"type":"AzureSqlDatabase","typeProperties":{"server":"${sql_fqdn}","database":"${database_name}","authenticationType":"SystemAssignedManagedIdentity","encrypt":"mandatory","trustServerCertificate":false},"connectVia":{"referenceName":"ir-private","type":"IntegrationRuntimeReference"}}}

@@ -1,0 +1,1 @@
+{"name":"ls_blob_mi","properties":{"type":"AzureBlobStorage","typeProperties":{"serviceEndpoint":"${blob_endpoint}","accountKind":"StorageV2"},"connectVia":{"referenceName":"ir-private","type":"IntegrationRuntimeReference"}}}

@@ -27,4 +27,11 @@ foreach ($project in $projects) {
     }
 }
 
+docker exec $container /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $password -C -b -Q "IF DB_ID('AzureErpDwhLab') IS NOT NULL BEGIN ALTER DATABASE AzureErpDwhLab SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE AzureErpDwhLab; END; CREATE DATABASE AzureErpDwhLab;"
+if ($LASTEXITCODE -ne 0) { throw 'Failed to create isolated Azure case test database.' }
+foreach ($file in @('001_warehouse_load.sql','002_assertions.sql')) {
+    Get-Content -Raw -LiteralPath "projects/04-azure-erp-dwh-migration/sql/$file" |
+        docker exec -i $container /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $password -C -b -r1 -I -d AzureErpDwhLab
+    if ($LASTEXITCODE -ne 0) { throw "Azure case assertion failed: $file" }
+}
 Write-Host 'All SQL projects and assertions completed.' -ForegroundColor Green

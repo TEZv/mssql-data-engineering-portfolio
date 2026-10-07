@@ -1,0 +1,1 @@
+{"name":"ls_key_vault","properties":{"type":"AzureKeyVault","typeProperties":{"baseUrl":"${vault_uri}"},"connectVia":{"referenceName":"ir-private","type":"IntegrationRuntimeReference"}}}

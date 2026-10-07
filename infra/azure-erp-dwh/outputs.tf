@@ -1,0 +1,9 @@
+output "resource_group" { value = azurerm_resource_group.this.name }
+output "factory_name" { value = azurerm_data_factory.this.name }
+output "adf_principal_id" { value = azurerm_data_factory.this.identity[0].principal_id }
+output "storage_name" { value = azurerm_storage_account.landing.name }
+output "sql_fqdn" { value = azurerm_mssql_server.this.fully_qualified_domain_name }
+output "database_name" { value = azurerm_mssql_database.warehouse.name }
+output "sql_resource_id" { value = azurerm_mssql_server.this.id }
+output "storage_resource_id" { value = azurerm_storage_account.landing.id }
+output "vault_resource_id" { value = azurerm_key_vault.this.id }

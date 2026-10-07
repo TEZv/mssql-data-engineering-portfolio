@@ -1,0 +1,7 @@
+-- Execute as an Entra SQL administrator from a network path into this database.
+-- Replace __ADF_NAME__ with the Terraform output. Prefer a unique identity name.
+CREATE USER [__ADF_NAME__] FROM EXTERNAL PROVIDER;
+GRANT SELECT, INSERT, UPDATE ON OBJECT::stg.SalesOrder TO [__ADF_NAME__];
+GRANT EXECUTE ON OBJECT::etl.usp_LoadSalesOrderBatch TO [__ADF_NAME__];
+-- ADF SQL sink upsert uses a staging table in tempdb (useTempDB=true).
+-- Test this grant set during cloud execution; no db_owner grant is intended.
