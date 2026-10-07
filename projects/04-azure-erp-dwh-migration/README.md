@@ -43,6 +43,12 @@ This is synthetic data and an independent implementation. It is not an employer 
 
 ## Warehouse contract
 
+## Executed verification
+
+Implementation commit `dd85c0b`: [SQL Server integration and Python contracts passed](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/runs/37596564579); [both Terraform modules passed](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/runs/37596564472). These checks execute SQL against SQL Server 2022 and validate provider definitions without Azure credentials. They do not test Azure connector reachability or Microsoft Entra authentication.
+
+## Warehouse contract
+
 Grain: one fact per ERP order (`SourceOrderId`) with one product per order in this fixture. Real multi-line ERP orders need an order-line key. Customer/product dimensions are code lookups (no descriptive history); date is populated from encountered source dates.
 
 Higher `SourceVersion` replaces the current fact; lower versions are audited as stale; equal-version changed payloads fail. Replaying a completed batch leaves the fact/audit unchanged. The source file must stay immutable under its batch id; a sorted staging content hash detects changed completed batches. Source row count and amount are calculated independently in Python, not copied from the staging count. These totals are reconciliation controls, not a proof of complete source-system CDC or deletions.
