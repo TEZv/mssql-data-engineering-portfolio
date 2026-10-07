@@ -41,8 +41,6 @@ This is synthetic data and an independent implementation. It is not an employer 
 4. Blob and SQL use managed identity. Key Vault is provisioned with a linked service for future ERP credentials; this fixture flow consumes no secret. The bootstrap administrator password is sensitive but still enters Terraform state, which must be protected.
 5. ADF failure metrics have an alert rule. An optional email must be supplied privately for notification delivery. Freshness is currently a documented SQL check, not a scheduled cloud alert.
 
-## Warehouse contract
-
 ## Executed verification
 
 Implementation commit `dd85c0b`: [SQL Server integration and Python contracts passed](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/runs/37596564579); [both Terraform modules passed](https://github.com/TEZv/mssql-data-engineering-portfolio/actions/runs/37596564472). These checks execute SQL against SQL Server 2022 and validate provider definitions without Azure credentials. They do not test Azure connector reachability or Microsoft Entra authentication.
